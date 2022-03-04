@@ -40,7 +40,20 @@ public class Algorithm2DArrays {
      *  @return  the number of elements that contain searchStr as a substring
      */
     public static int countElementsWithSubstring(String[][] arr, String searchStr)
-    { return 0; }
+    {
+        int count = 0;
+        for (String[] row : arr)
+        {
+            for (String x : row)
+            {
+                if (x.indexOf(searchStr) != -1)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 
 
 
