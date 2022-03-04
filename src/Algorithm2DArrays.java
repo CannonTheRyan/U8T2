@@ -66,7 +66,21 @@ public class Algorithm2DArrays {
      *  @return  the number of changes made
      */
     public static int replaceEvensWithZero(int[][] arr)
-    { return 0; }
+    {
+        int count = 0;
+        for (int i = 0; i < arr.length; i++)
+        {
+            for (int j = 0; j < arr[0].length; j++)
+            {
+                if (arr[i][j] % 2 == 0)
+                {
+                    arr[i][j] = 0;
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
 
 
 
@@ -81,7 +95,14 @@ public class Algorithm2DArrays {
 
      */
     public static int sumForRow(int[][] arr, int row)
-    { return 0; }
+    {
+        int sum = 0;
+        for (int i = 0; i < arr[row].length; i++)
+        {
+            sum += arr[row][i];
+        }
+        return sum;
+    }
 
 
 
@@ -94,7 +115,14 @@ public class Algorithm2DArrays {
      *  @return  the sum of all elements in column
      */
     public static int sumForColumn(int[][] arr, int col)
-    { return 0;}
+    {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++)
+        {
+            sum += arr[i][col];
+        }
+        return sum;
+    }
 
 
     /** Creates a 2D array of ints of size n x m, where n is number of rows and
@@ -116,7 +144,27 @@ public class Algorithm2DArrays {
      *  @return  the same 2D array "number grid" that gets printed by the method
      */
     public static int[][] printNumberGrid(int rows, int cols)
-    { return new int[][]{}; }
+    {
+        int[][] grid = new int[rows][cols];
+        int num = 0;
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                grid[i][j] = num;
+                num++;
+            }
+        }
+        for (int[] row : grid)
+        {
+            for (int x : row)
+            {
+                System.out.print(x + " ");
+            }
+            System.out.println();
+        }
+        return grid;
+    }
 
 
     /** Creates and returns a square 2D array of Strings of size n x n; the
@@ -135,7 +183,19 @@ public class Algorithm2DArrays {
      *  @return  a 2D array of Strings that alternate between "X" and "O"
      */
     public static String[][] gridOfXandO(int n)
-    { return new String[][]{}; }
+    {
+        String[][] grid = new String[n][n];
+        boolean tf = true;
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = 0; j < n; j++)
+            {
+                grid[i][j] = (tf)? "X": "O";
+                tf = !tf;
+            }
+        }
+        return grid;
+    }
 
 
 
@@ -148,5 +208,18 @@ public class Algorithm2DArrays {
      *  @return  an ArrayList containing all strings in wordChart with length len
      */
     public static ArrayList<String> findStringsOfLength(String[][] wordChart, int len)
-    { return new ArrayList<>(); }
+    {
+        ArrayList<String> list = new ArrayList<>();
+        for (String[] row : wordChart)
+        {
+            for (String x : row)
+            {
+                if (x.length() == len)
+                {
+                    list.add(x);
+                }
+            }
+        }
+        return list;
+    }
 }
